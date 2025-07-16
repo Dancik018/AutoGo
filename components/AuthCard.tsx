@@ -151,23 +151,13 @@ export default function AuthCard({ onLogin, onSignUp, isFlipped, onFlip }: AuthC
       if (success) {
         router.push('/home');
       } else {
-        setSignUpEmailError("Failed to create account. Email may already be in use.");
+        setSignUpNameError("This name is already in use.");
       }
     }
   };
 
   return (
     <View className="items-center">
-      <View className="flex-row items-center mb-8">
-        <Text className={`font-bold text-lg ${!isFlipped ? 'underline' : ''}`} onPress={!isFlipped ? undefined : handleFlip}>Log in</Text>
-        <TouchableOpacity onPress={handleFlip} className="mx-4">
-          <View className={`w-12 h-6 rounded-full p-1 ${isFlipped ? 'bg-blue-500' : 'bg-gray-300'}`}>
-            <Animated.View className={`w-4 h-4 bg-white rounded-full`} style={{ transform: [{ translateX: flipAnimation.interpolate({ inputRange: [0, 1], outputRange: [0, 24] }) }] }} />
-          </View>
-        </TouchableOpacity>
-        <Text className={`font-bold text-lg ${isFlipped ? 'underline' : ''}`} onPress={isFlipped ? undefined : handleFlip}>Sign up</Text>
-      </View>
-
       <View className="w-[300px] h-[380px]">
         <Animated.View style={[frontAnimatedStyle, { backfaceVisibility: 'hidden' }]} className="absolute w-full h-full bg-gray-200 rounded-md border-2 border-gray-800 items-center justify-center p-5 shadow-lg" pointerEvents={isFlipped ? 'none' : 'auto'}>
           <Text className="text-2xl font-bold mb-4">Log in</Text>
@@ -188,6 +178,16 @@ export default function AuthCard({ onLogin, onSignUp, isFlipped, onFlip }: AuthC
             <Text className="font-bold">Confirm!</Text>
           </TouchableOpacity>
         </Animated.View>
+      </View>
+
+      <View className="flex-row items-center mt-8">
+        <Text className={`font-bold text-lg ${!isFlipped ? 'underline' : ''}`} onPress={!isFlipped ? undefined : handleFlip}>Log in</Text>
+        <TouchableOpacity onPress={handleFlip} className="mx-4">
+          <View className={`w-12 h-6 rounded-full p-1 ${isFlipped ? 'bg-blue-500' : 'bg-gray-300'}`}>
+            <Animated.View className={`w-4 h-4 bg-white rounded-full`} style={{ transform: [{ translateX: flipAnimation.interpolate({ inputRange: [0, 1], outputRange: [0, 24] }) }] }} />
+          </View>
+        </TouchableOpacity>
+        <Text className={`font-bold text-lg ${isFlipped ? 'underline' : ''}`} onPress={isFlipped ? undefined : handleFlip}>Sign up</Text>
       </View>
     </View>
   );

@@ -1,5 +1,5 @@
 import AuthCard from '@/components/AuthCard';
-import { addUser, findUserByEmail } from '@/services/database';
+import { addUser, findUserByEmail, findUserByName } from '@/services/database';
 import * as Crypto from 'expo-crypto';
 import { useRouter } from 'expo-router';
 import { useState } from 'react';
@@ -31,6 +31,10 @@ export default function LoginScreen() {
 
   const handleSignUp = async (name: string, email: string, password: string): Promise<boolean> => {
     try {
+      const existingUserByName = findUserByName(name);
+      if (existingUserByName) {
+        return false;
+      }
       const existingUser = findUserByEmail(email);
       if (existingUser) {
         return false;
@@ -48,7 +52,7 @@ export default function LoginScreen() {
   };
 
   return (
-    <View className="flex-1 bg-white p-8">
+    <View className="flex-1 bg-white p-8 justify-center items-center">
       <TouchableOpacity onPress={() => router.back()} className="mb-8">
       </TouchableOpacity>
       

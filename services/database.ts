@@ -31,3 +31,12 @@ export const findUserByEmail = (email: string): any | null => {
     throw error;
   }
 };
+export const findUserByName = (name: string): any | null => {
+  try {
+    const user = db.getFirstSync('SELECT * FROM users WHERE name = ?', name);
+    return user || null;
+  } catch (error) {
+    console.error("Error finding user by name", error);
+    throw error;
+  }
+};
