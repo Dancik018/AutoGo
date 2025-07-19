@@ -7,6 +7,8 @@ export interface Car {
   availability: boolean;
   features: string[];
   images: string[];
+  description?: string;
+  rating?: number;
   class: 'econom' | 'comfort' | 'premium';
   fuel_type: string;
   engine_capacity: string;

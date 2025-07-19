@@ -54,7 +54,7 @@ export default function HomeScreen() {
         <Text style={{ fontWeight: 'bold', fontSize: 13 }}>{item.make} {item.model}</Text>
         <View style={{ flexDirection: 'row', alignItems: 'center', marginVertical: 2 }}>
           <Text style={{ color: '#FFA500', fontWeight: 'bold', marginRight: 2 }}>★</Text>
-          <Text style={{ color: '#333', fontSize: 12 }}>5.0</Text>
+          <Text style={{ color: '#333', fontSize: 12 }}>{item.rating ? item.rating.toFixed(1) : '5.0'}</Text>
         </View>
         <Text style={{ color: '#222', fontWeight: 'bold', fontSize: 13 }}>${item.price_per_day}/day</Text>
         <Text style={{ color: '#007AFF', fontWeight: 'bold', fontSize: 11, marginTop: 2 }}>{item.class === 'premium' ? 'VIP' : item.class.charAt(0).toUpperCase() + item.class.slice(1)}</Text>
@@ -88,7 +88,7 @@ export default function HomeScreen() {
         <Text style={{ fontWeight: 'bold', fontSize: 16 }}>{item.make} {item.model}</Text>
         <View style={{ flexDirection: 'row', alignItems: 'center', marginVertical: 4 }}>
           <Text style={{ color: '#FFA500', fontWeight: 'bold', marginRight: 4 }}>★</Text>
-          <Text style={{ color: '#333', fontSize: 14 }}>5.0</Text>
+          <Text style={{ color: '#333', fontSize: 14 }}>{item.rating ? item.rating.toFixed(1) : '5.0'}</Text>
         </View>
         <Text style={{ color: '#222', fontWeight: 'bold', fontSize: 15 }}>${item.price_per_day}/day</Text>
         <Text style={{ color: '#007AFF', fontWeight: 'bold', fontSize: 13, marginTop: 2 }}>{item.class === 'premium' ? 'VIP' : item.class.charAt(0).toUpperCase() + item.class.slice(1)}</Text>
@@ -159,7 +159,11 @@ export default function HomeScreen() {
               contentContainerStyle={{ paddingLeft: 8, paddingRight: 8, alignItems: 'center' }}
               style={{ minHeight: 150 }}
             >
-              {recommendedCars.map((item) => renderRecommendedCar({ item }))}
+              {recommendedCars.map((item) => (
+                <React.Fragment key={item.id}>
+                  {renderRecommendedCar({ item })}
+                </React.Fragment>
+              ))}
             </ScrollView>
           </>
 

@@ -12,7 +12,9 @@
     "engine_capacity": "1.5L",
     "body_type": "hatchback",
     "image_folder": "Volkswagen-Golf",
-    "images": ["golf.png"]
+    "images": ["golf.png"],
+    "description": "Volkswagen Golf este o alegere excelentă pentru oraș, cu un consum redus și dotări moderne. Perfectă pentru drumuri zilnice sau escapade de weekend.",
+    "rating": 4.7
   },
   {
     "id": 2,
@@ -27,7 +29,9 @@
     "engine_capacity": "1.5L",
     "body_type": "sedan",
     "image_folder": "Dacia-Logan",
-    "images": ["dacia.png"]
+    "images": ["dacia.png"],
+    "description": "Dacia Logan este recunoscută pentru fiabilitate și costuri mici de întreținere. Ideală pentru familii sau navetă zilnică.",
+    "rating": 4.2
   },
   {
     "id": 3,
@@ -42,7 +46,9 @@
     "engine_capacity": "1.8L",
     "body_type": "sedan",
     "image_folder": "Toyota-Corolla",
-    "images": ["corolla.png"]
+    "images": ["corolla.png"],
+    "description": "Toyota Corolla combină eficiența cu tehnologia hibridă, oferind o experiență de condus lină și economică.",
+    "rating": 4.8
   },
   {
     "id": 4,
@@ -57,7 +63,9 @@
     "engine_capacity": "3.0L",
     "body_type": "suv",
     "image_folder": "BMW-X5",
-    "images": ["bmw.png"]
+    "images": ["bmw.png"],
+    "description": "BMW X5 impresionează prin lux, putere și confort. SUV-ul perfect pentru cei care doresc performanță și rafinament.",
+    "rating": 4.9
   },
   {
     "id": 5,
@@ -72,7 +80,9 @@
     "engine_capacity": "2.0L",
     "body_type": "sedan",
     "image_folder": "Mercedess-E-Class",
-    "images": ["e-class.png"]
+    "images": ["e-class.png"],
+    "description": "Mercedes-Benz E-Class oferă eleganță, tehnologie avansată și o experiență premium la fiecare drum.",
+    "rating": 4.6
   },
   {
     "id": 6,
@@ -87,7 +97,9 @@
     "engine_capacity": "2.0L",
     "body_type": "sedan",
     "image_folder": "Audi-A4",
-    "images": ["audi.jpg"]
+    "images": ["audi.jpg"],
+    "description": "Audi A4 se remarcă prin design modern, interior rafinat și performanțe dinamice.",
+    "rating": 4.5
   },
   {
     "id": 7,
@@ -102,7 +114,9 @@
     "engine_capacity": "2.0L",
     "body_type": "liftback",
     "image_folder": "Skoda-Octavia",
-    "images": ["skoda.png"]
+    "images": ["skoda.png"],
+    "description": "Skoda Octavia este spațioasă, practică și ideală pentru familii sau călătorii lungi.",
+    "rating": 4.3
   },
   {
     "id": 8,
@@ -117,7 +131,9 @@
     "engine_capacity": "1.0L",
     "body_type": "hatchback",
     "image_folder": "Renault-Clio",
-    "images": ["reno.png"]
+    "images": ["reno.png"],
+    "description": "Renault Clio este compactă, agilă și perfectă pentru traficul urban.",
+    "rating": 4.1
   },
   {
     "id": 9,
@@ -132,7 +148,9 @@
     "engine_capacity": "1.5L",
     "body_type": "hatchback",
     "image_folder": "Ford-Focus",
-    "images": ["ford.png"]
+    "images": ["ford.png"],
+    "description": "Ford Focus oferă un echilibru excelent între confort, tehnologie și manevrabilitate.",
+    "rating": 4.4
   },
   {
     "id": 10,
@@ -147,7 +165,9 @@
     "engine_capacity": "1.6L",
     "body_type": "suv",
     "image_folder": "Hyundai-Tucson",
-    "images": ["tucson.png"]
+    "images": ["tucson.png"],
+    "description": "Hyundai Tucson este un SUV modern, cu dotări de siguranță și confort de ultimă generație.",
+    "rating": 4.6
   },
   {
     "id": 11,
@@ -162,7 +182,9 @@
     "engine_capacity": "2.5L",
     "body_type": "suv",
     "image_folder": "Kia-Sportage",
-    "images": ["kia.png"]
+    "images": ["kia.png"],
+    "description": "Kia Sportage impresionează prin design robust și spațiu generos pentru pasageri și bagaje.",
+    "rating": 4.5
   },
   {
     "id": 12,
@@ -177,7 +199,9 @@
     "engine_capacity": "1.5L",
     "body_type": "suv",
     "image_folder": "Peugeot-3008",
-    "images": ["peugeot.png"]
+    "images": ["peugeot.png"],
+    "description": "Peugeot 3008 oferă o experiență de condus plăcută, cu un interior inovator și confortabil.",
+    "rating": 4.4
   },
   {
     "id": 13,
@@ -192,7 +216,9 @@
     "engine_capacity": "1.3L",
     "body_type": "suv",
     "image_folder": "Nissan-Qashqai",
-    "images": ["nissan.png"]
+    "images": ["nissan.png"],
+    "description": "Nissan Qashqai este alegerea perfectă pentru aventuri urbane și extraurbane, cu tehnologii moderne de asistență.",
+    "rating": 4.7
   },
   {
     "id": 14,
@@ -207,7 +233,9 @@
     "engine_capacity": "2.5L",
     "body_type": "suv",
     "image_folder": "Mazda-CX-5",
-    "images": ["mazda.png"]
+    "images": ["mazda.png"],
+    "description": "Mazda CX-5 combină sportivitatea cu eleganța, oferind o experiență de condus captivantă.",
+    "rating": 4.6
   },
   {
     "id": 15,
@@ -222,7 +250,9 @@
     "engine_capacity": "2.0L",
     "body_type": "suv",
     "image_folder": "Volvo-XC-60",
-    "images": ["volvo.png"]
+    "images": ["volvo.png"],
+    "description": "Volvo XC60 pune accent pe siguranță, confort și tehnologie scandinavă de top.",
+    "rating": 4.8
   },
   {
     "id": 16,
@@ -237,7 +267,9 @@
     "engine_capacity": "3.5L",
     "body_type": "suv",
     "image_folder": "Lexus-RX",
-    "images": ["lexus.png"]
+    "images": ["lexus.png"],
+    "description": "Lexus RX este un SUV de lux, cu finisaje premium și tehnologie hibridă avansată.",
+    "rating": 4.9
   },
   {
     "id": 17,
@@ -252,7 +284,9 @@
     "engine_capacity": "2.5L",
     "body_type": "suv",
     "image_folder": "Toyota-RAV4",
-    "images": ["rav4.png"]
+    "images": ["rav4.png"],
+    "description": "Toyota RAV4 este robustă, fiabilă și ideală pentru orice tip de drum, urban sau off-road.",
+    "rating": 4.7
   },
   {
     "id": 18,
@@ -267,7 +301,9 @@
     "engine_capacity": "2.0L",
     "body_type": "sedan",
     "image_folder": "Volkswagen-Passat",
-    "images": ["passat.png"]
+    "images": ["passat.png"],
+    "description": "Volkswagen Passat oferă spațiu, confort și tehnologie pentru călătorii lungi fără griji.",
+    "rating": 4.5
   },
   {
     "id": 19,
@@ -282,6 +318,8 @@
     "engine_capacity": "2.0L",
     "body_type": "sedan",
     "image_folder": "BMW-3-Series",
-    "images": ["bmw-seria3.png"]
+    "images": ["bmw-seria3.png"],
+    "description": "BMW 3 Series este simbolul sportivității și rafinamentului în clasa medie premium.",
+    "rating": 4.8
   }
 ]
