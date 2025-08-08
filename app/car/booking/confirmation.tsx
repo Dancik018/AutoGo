@@ -17,6 +17,7 @@ export default function BookingConfirmation() {
 
   return (
     <View className="flex-1 bg-white p-6 justify-center items-center">
+      <Text style={{ fontSize: 32, fontWeight: 'bold', color: '#111', textAlign: 'center', marginBottom: 16 }}>AutoGo</Text>
       <View className="items-center mb-6 mt-8">
         <View className="bg-green-100 rounded-full p-4 mb-2">
           <FontAwesome name="check" size={36} color="#22c55e" />

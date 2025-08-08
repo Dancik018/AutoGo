@@ -10,45 +10,43 @@ export default function SignInScreen() {
   const [isFlipped, setIsFlipped] = useState(true);
 
   const handleLogin = async (email: string, password: string): Promise<boolean> => {
-    try {
-      const user = findUserByEmail(email);
-      if (!user) {
-        return false;
-      }
-      const hashedPassword = await Crypto.digestStringAsync(
-        Crypto.CryptoDigestAlgorithm.SHA256,
-        password
-      );
-      if (user.password === hashedPassword) {
-        return true;
-      }
-      return false;
-    } catch (error) {
-      console.error(error);
-      return false;
-    }
+    return new Promise((resolve) => {
+      findUserByEmail(email, async (user, error) => {
+        if (error || !user) {
+          resolve(false);
+          return;
+        }
+        const hashedPassword = await Crypto.digestStringAsync(
+          Crypto.CryptoDigestAlgorithm.SHA256,
+          password
+        );
+        if (user.password === hashedPassword) {
+          resolve(true);
+        } else {
+          resolve(false);
+        }
+      });
+    });
   };
 
   const handleSignUp = async (name: string, email: string, password: string): Promise<boolean> => {
-    try {
-      const existingUserByName = findUserByName(name);
-      if (existingUserByName) {
-        return false;
-      }
-      const existingUser = findUserByEmail(email);
-      if (existingUser) {
-        return false;
-      }
-      const hashedPassword = await Crypto.digestStringAsync(
-        Crypto.CryptoDigestAlgorithm.SHA256,
-        password
-      );
-      addUser(name, email, hashedPassword);
-      return true;
-    } catch (error) {
-      console.error(error);
-      return false;
-    }
+    return new Promise((resolve) => {
+      findUserByName(name, (existingUserByName) => {
+        findUserByEmail(email, async (existingUser) => {
+          if (existingUserByName || existingUser) {
+            resolve(false);
+            return;
+          }
+          const hashedPassword = await Crypto.digestStringAsync(
+            Crypto.CryptoDigestAlgorithm.SHA256,
+            password
+          );
+          addUser(name, email, hashedPassword, (success) => {
+            resolve(success);
+          });
+        });
+      });
+    });
   };
 
   return (
@@ -56,6 +54,7 @@ export default function SignInScreen() {
       <TouchableOpacity onPress={() => router.back()} className="mb-8">
       </TouchableOpacity>
       
+      <Text style={{ fontSize: 32, fontWeight: 'bold', color: '#111', textAlign: 'center', marginBottom: 8 }}>AutoGo</Text>
       {isFlipped ? (
         <>
           <Text className="text-3xl font-bold">Create Account</Text>

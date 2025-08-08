@@ -1,5 +1,6 @@
 import AuthCard from '@/components/AuthCard';
 import { addUser, findUserByEmail, findUserByName } from '@/services/database';
+import { useUser } from '@/services/userContext';
 import * as Crypto from 'expo-crypto';
 import { useRouter } from 'expo-router';
 import React, { useState } from 'react';
@@ -7,6 +8,7 @@ import { Text, TouchableOpacity, View } from 'react-native';
 
 export default function LoginScreen() {
   const router = useRouter();
+  const { setCurrentUser } = useUser();
   const [isFlipped, setIsFlipped] = useState(false);
 
   const handleLogin = async (email: string, password: string): Promise<boolean> => {
@@ -21,6 +23,11 @@ export default function LoginScreen() {
           password
         );
         if (user.password === hashedPassword) {
+          setCurrentUser({
+            id: user.id,
+            name: user.name,
+            email: user.email
+          });
           resolve(true);
         } else {
           resolve(false);
@@ -49,6 +56,16 @@ export default function LoginScreen() {
           );
           addUser(name, email, hashedPassword, (success) => {
             if (success) {
+              // Get the newly created user to set as current user
+              findUserByEmail(email, (newUser) => {
+                if (newUser) {
+                  setCurrentUser({
+                    id: newUser.id,
+                    name: newUser.name,
+                    email: newUser.email
+                  });
+                }
+              });
               resolve('success');
             } else {
               resolve('error');
@@ -64,6 +81,7 @@ export default function LoginScreen() {
       <TouchableOpacity onPress={() => router.back()} className="mb-8">
       </TouchableOpacity>
       
+      <Text style={{ fontSize: 32, fontWeight: 'bold', color: '#111', textAlign: 'center', marginBottom: 8 }}>AutoGo</Text>
       {isFlipped ? (
         <>
           <Text className="text-3xl font-bold">Create Account</Text>

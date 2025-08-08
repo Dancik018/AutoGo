@@ -47,6 +47,7 @@ export default function BookingForm() {
   return (
     <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : undefined} className="flex-1 bg-white">
       <ScrollView contentContainerStyle={{ flexGrow: 1, justifyContent: 'center', padding: 24 }} keyboardShouldPersistTaps="handled">
+        <Text style={{ fontSize: 32, fontWeight: 'bold', color: '#111', textAlign: 'center', marginBottom: 16 }}>AutoGo</Text>
         <Text className="text-2xl font-bold mb-6 text-center">Booking for {car.make} {car.model}</Text>
         <TextInput
           className="border border-gray-300 rounded-xl p-4 mb-4 text-base bg-gray-50"

@@ -1,7 +1,8 @@
+import BottomNavigation from '@/components/BottomNavigation';
 import { getCars } from '@/services/carService';
 import { imageMap } from '@/services/image-map';
 import { Car } from '@/types/car';
-import { usePathname, useRouter } from 'expo-router';
+import { useRouter } from 'expo-router';
 import React, { useEffect, useState } from 'react';
 import { FlatList, Image, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
@@ -17,7 +18,6 @@ export default function HomeScreen() {
   const [search, setSearch] = useState('');
   const [category, setCategory] = useState('all');
   const router = useRouter();
-  const pathname = usePathname();
 
   useEffect(() => {
     setCars(getCars());
@@ -96,12 +96,7 @@ export default function HomeScreen() {
     </TouchableOpacity>
   );
 
-  const navItems = [
-    { key: 'home', label: 'Home', icon: require('@/assets/images/home-ico.png'), route: '/home' as const },
-    { key: 'favorite', label: 'Favorite', icon: require('@/assets/images/favorite-ico.png'), route: '/favorite' as const },
-    { key: 'notificari', label: 'Notificări', icon: require('@/assets/images/notification-ico.png'), route: '/notificari' as const },
-    { key: 'profile', label: 'Profile', icon: require('@/assets/images/profile-ico.png'), route: '/profile' as const },
-  ];
+
 
   return (
     <View style={{ flex: 1, backgroundColor: '#f8f8f8' }}>
@@ -181,17 +176,7 @@ export default function HomeScreen() {
           scrollEnabled={false}
         />
       </ScrollView>
-      <View style={{ position: 'absolute', left: 0, right: 0, bottom: 0, height: 64, backgroundColor: '#fff', flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center', borderTopWidth: 1, borderTopColor: '#eee', zIndex: 100 }}>
-        {navItems.map(item => {
-          const active = pathname === item.route;
-          return (
-            <TouchableOpacity key={item.key} style={{ alignItems: 'center', flex: 1, justifyContent: 'center' }} onPress={() => router.push({ pathname: item.route })}>
-              <Image source={item.icon} style={{ width: 26, height: 26, marginBottom: 2, tintColor: active ? '#007AFF' : '#888' }} />
-              <Text style={{ fontSize: 12, color: active ? '#007AFF' : '#888', fontWeight: active ? 'bold' : 'normal' }}>{item.label}</Text>
-            </TouchableOpacity>
-          );
-        })}
-      </View>
+      <BottomNavigation />
     </View>
   );
 }
